@@ -9,6 +9,10 @@ namespace Ogd.Virarium.Domain.Models
 
         public virtual string Name { get; set; }
 
+        public virtual MachineType MachineType { get; set; }
+
         public virtual ICollection<Infection> Infections { get; set; }
+
+        public virtual ICollection<NIC> NICs { get; set; }
     }
 }

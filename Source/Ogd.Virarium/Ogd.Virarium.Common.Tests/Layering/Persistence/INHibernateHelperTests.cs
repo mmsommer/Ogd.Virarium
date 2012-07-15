@@ -1,5 +1,4 @@
-﻿using Moq;
-using NHibernate;
+﻿using NHibernate;
 using NHibernate.Cfg;
 using NUnit.Framework;
 using Ogd.Virarium.Common.Layering.Persistence;
@@ -41,27 +40,6 @@ namespace Ogd.Virarium.Common.Tests.Layering.Persistence
             var sut = CreateINHibernateImplementation();
 
             Assert.That(sut.SessionFactory, Is.InstanceOf<ISessionFactory>());
-        }
-
-        [Test]
-        public void Test_RollBack_SessionGiven_DoesNotThrowException()
-        {
-            // Assign
-            var sessionMock = new Mock<ISession>();
-            var sut = CreateINHibernateImplementation();
-
-            // Act
-            // Assert
-            Assert.That(() => sut.RollBack(sessionMock.Object), Throws.Nothing);
-        }
-
-        [Test]
-        public void Test_Flush_SessionGiven_DoesNotThrowException()
-        {
-            var sessionMock = new Mock<ISession>();
-            var sut = CreateINHibernateImplementation();
-
-            sut.Flush(sessionMock.Object);
         }
 
         [Test]

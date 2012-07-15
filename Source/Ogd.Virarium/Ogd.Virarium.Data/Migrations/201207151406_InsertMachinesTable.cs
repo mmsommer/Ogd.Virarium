@@ -11,7 +11,8 @@ namespace Ogd.Virarium.Data.Migrations
             Database.AddTable(
                 "Machines",
                 new Column("Id", DbType.Int32, ColumnProperty.PrimaryKeyWithIdentity),
-                new Column("Name", DbType.String, ColumnProperty.NotNull)
+                new Column("Name", DbType.String, ColumnProperty.NotNull),
+                new Column("MachineType", DbType.Int32, ColumnProperty.NotNull)
             );
         }
 

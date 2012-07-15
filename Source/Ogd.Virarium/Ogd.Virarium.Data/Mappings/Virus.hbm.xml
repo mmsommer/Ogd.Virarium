@@ -9,5 +9,13 @@
                     not-null="true" />
             <generator class="identity" />
         </id>
+        <property name="Name" />
+        <set name="Infections"
+             table="Infections"
+             inverse="true" >
+            <key column="VirusId" />
+            <one-to-many class="Ogd.Virarium.Domain.Models.Infection"
+                          column="Id" />
+        </set>
     </class>
 </hibernate-mapping>

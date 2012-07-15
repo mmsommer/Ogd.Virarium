@@ -40,10 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\Infection.cs" />
     <Compile Include="Models\Machine.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\NIC.cs" />
+    <Compile Include="Models\MachineType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Virus.cs" />
   </ItemGroup>
