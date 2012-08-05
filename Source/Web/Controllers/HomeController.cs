@@ -1,23 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace Ogd.Virarium.Web.Controllers
+﻿namespace Ogd.Virarium.Web.Controllers
 {
-    public class HomeController : Controller
-    {
-        public ActionResult Index()
-        {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+    using System.Web.Mvc;
+    using Ogd.Virarium.Common.Layering.Presentation;
+    using Ogd.Virarium.Domain.Models;
+    using Ogd.Virarium.Services;
+    using Ogd.Virarium.Web.Models;
+    using Ogd.Virarium.Web.Models.Home;
 
-            return View();
+    public class HomeController : BaseController
+    {
+        public IMachineService MachineService { get; private set; }
+
+        public HomeController() : this(default(IMachineService)) { }
+
+        public HomeController(IMachineService machineService)
+        {
+            MachineService = machineService ?? new MachineService();
         }
 
-        public ActionResult About()
+        public ActionResult Index()
         {
-            return View();
+            var viewModel = new IndexViewModel();
+            viewModel.Machines = Map<Machine, MachineViewModel>(MachineService.GetAll());
+
+            return View(viewModel);
         }
     }
 }

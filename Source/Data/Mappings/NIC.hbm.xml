@@ -10,8 +10,6 @@
             <generator class="identity" />
         </id>
         <property name="IpAddress" />
-        <many-to-one name="Connection"
-                     column="ConnectionId" />
         <many-to-one name="Machine"
                      column="MachineId" />
     </class>

@@ -5,7 +5,9 @@
     using Ogd.Virarium.Data;
     using Ogd.Virarium.Domain.Models;
 
-    public class MachineService : ServiceBase<Machine>
+    public interface IMachineService : IService<Machine> { }
+
+    public class MachineService : ServiceBase<Machine>, IMachineService
     {
         public MachineService() : this(default(IRepositoryFactory)) { }
 

@@ -1,8 +1,14 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IndexViewModel
+@using Ogd.Virarium.Web.Models.Home
+@using Ogd.Virarium.Resources.Web.Views.Shared
+@{
+    ViewBag.Title = SharedStrings.Product;
 }
-
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<div class="machines">
+    @foreach(var machine in Model.Machines)
+    {
+        <div class="machine">
+            <div>@machine.Name</div>
+        </div>
+    }
+</div>

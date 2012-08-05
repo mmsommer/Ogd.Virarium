@@ -11,8 +11,7 @@
         </id>
         <property name="Name" />
         <set name="Infections"
-             table="Infections"
-             inverse="true" >
+             table="Infections">
             <key column="VirusId" />
             <one-to-many class="Ogd.Virarium.Domain.Models.Infection"
                           column="Id" />

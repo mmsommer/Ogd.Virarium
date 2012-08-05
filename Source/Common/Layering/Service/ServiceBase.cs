@@ -1,11 +1,27 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
-using Ogd.Virarium.Common.Layering.Business;
-using Ogd.Virarium.Common.Layering.Persistence;
-
-namespace Ogd.Virarium.Common.Layering.Service
+﻿namespace Ogd.Virarium.Common.Layering.Service
 {
+    using System;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Ogd.Virarium.Common.Layering.Business;
+    using Ogd.Virarium.Common.Layering.Persistence;
+
+    public interface IService<T>
+        where T : class, IIdentifiable
+    {
+        IQueryable<T> GetAll();
+
+        T Find(int id);
+
+        bool Exists(params Expression<Func<T, bool>>[] selectors);
+
+        void Create(T entity);
+
+        void Update(T entity);
+
+        void Delete(T entity);
+    }
+
     public abstract class ServiceBase<TEntity> : IService<TEntity>
         where TEntity : class, IIdentifiable
     {
@@ -24,7 +40,7 @@ namespace Ogd.Virarium.Common.Layering.Service
         public virtual bool Exists(params Expression<Func<TEntity, bool>>[] selectors)
         {
             var exists = false;
-            foreach (var selector in selectors)
+            foreach(var selector in selectors)
             {
                 exists &= GetAll().All(selector);
             }
@@ -45,21 +61,5 @@ namespace Ogd.Virarium.Common.Layering.Service
         {
             RepositoryFactory.GetRepository<TEntity>().Delete(entity);
         }
-    }
-
-    public interface IService<T>
-        where T : class, IIdentifiable
-    {
-        IQueryable<T> GetAll();
-
-        T Find(int id);
-
-        bool Exists(params Expression<Func<T, bool>>[] selectors);
-
-        void Create(T entity);
-
-        void Update(T entity);
-
-        void Delete(T entity);
     }
 }

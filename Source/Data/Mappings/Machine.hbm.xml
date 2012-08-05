@@ -12,8 +12,7 @@
         <property name="Name" />
         <property name="MachineType" />
         <set name="Infections"
-             table="Infections"
-             inverse="true" >
+             table="Infections" >
             <key column="MachineId" />
             <one-to-many class="Ogd.Virarium.Domain.Models.Infection"
                          column="Id" />

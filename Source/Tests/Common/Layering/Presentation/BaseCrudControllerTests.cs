@@ -9,13 +9,13 @@
     using Ogd.Virarium.Common.Layering.Service;
 
     [TestFixture]
-    public abstract class BaseCrudControllerTests<TEntity, TViewModel> : BaseControllerTests
+    public abstract class BaseCrudControllerTests<TEntity, TViewModel> : BaseControllerTests<BaseCrudController<TEntity, TViewModel>>
         where TEntity : class, IIdentifiable, new()
         where TViewModel : class, IViewModel<TEntity>, new()
     {
         protected abstract BaseCrudController<TEntity, TViewModel> CreateImplementation(IService<TEntity> service);
 
-        protected override BaseController CreateImplementation()
+        protected override BaseCrudController<TEntity, TViewModel> CreateImplementation()
         {
             return this.CreateImplementation(null);
         }

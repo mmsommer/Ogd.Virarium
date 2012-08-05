@@ -5,9 +5,10 @@
     using Ogd.Virarium.Common.Layering.Presentation;
 
     [TestFixture]
-    public abstract class BaseControllerTests
+    public abstract class BaseControllerTests<TImplementation>
+        where TImplementation : BaseController
     {
-        protected abstract BaseController CreateImplementation();
+        protected abstract TImplementation CreateImplementation();
 
         [Test]
         public void Map_WithObject_ThrowsNoException()
