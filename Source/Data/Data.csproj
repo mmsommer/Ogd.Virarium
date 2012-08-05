@@ -84,7 +84,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Migrations\MigrationSettings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>MigrationSettings.Designer.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
@@ -100,7 +100,9 @@
     <Content Include="Mappings\Infection.hbm.xml" />
     <Content Include="Mappings\Machine.hbm.xml" />
     <Content Include="Mappings\NIC.hbm.xml" />
-    <Content Include="Mappings\Virus.hbm.xml" />
+    <Content Include="Mappings\Virus.hbm.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -18,6 +18,7 @@
             MachineService = machineService ?? new MachineService();
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             var viewModel = new IndexViewModel();
