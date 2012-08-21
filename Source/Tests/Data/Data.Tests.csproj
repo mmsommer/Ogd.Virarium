@@ -80,6 +80,10 @@
       <Project>{EF6C3F65-764F-463B-8705-361F26A8584E}</Project>
       <Name>Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.csproj">
+      <Project>{DD102574-7ED8-450E-87AE-AEECBD5EF36C}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Common.Tests.csproj">
       <Project>{C2BCB25B-F725-4997-8207-BBFF5954ACF7}</Project>
       <Name>Common %28Tests\Common%29</Name>

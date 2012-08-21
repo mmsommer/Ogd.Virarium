@@ -21,6 +21,10 @@
         [HttpGet]
         public ActionResult Index()
         {
+            CreateMap<Infection, InfectionViewModel>();
+            CreateMap<Virus, VirusViewModel>();
+            CreateMap<Machine, MachineViewModel>();
+
             var viewModel = new IndexViewModel();
             viewModel.Machines = Map<Machine, MachineViewModel>(MachineService.GetAll());
 

@@ -4,11 +4,50 @@
 @{
     ViewBag.Title = SharedStrings.Product;
 }
-<div class="machines">
-    @foreach(var machine in Model.Machines)
-    {
-        <div class="machine">
-            <div>@machine.Name</div>
-        </div>
-    }
-</div>
+<script type="text/javascript">
+    function Refresh() {
+        location.reload();
+    };
+
+    $(document).ready(function () {
+        setTimeout("Refresh()", 500);
+    });
+</script>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Infections
+            </th>
+            <th>
+                Infected with
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var machine in Model.Machines)
+        {
+            <tr>
+                <td>
+                    @machine.Name
+                </td>
+                <td>@machine.Infections.Count()
+                </td>
+                <td>
+                    @foreach(var infection in machine.Infections)
+                    { 
+                        <div>
+                            @infection.Virus.Name
+                        </div>
+                        <div>
+                            @infection.Start - @infection.End
+                        </div>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
