@@ -96,13 +96,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Mappings\Connection.hbm.xml" />
-    <Content Include="Mappings\Infection.hbm.xml" />
-    <Content Include="Mappings\Machine.hbm.xml" />
-    <Content Include="Mappings\NIC.hbm.xml" />
-    <Content Include="Mappings\Virus.hbm.xml">
+    <EmbeddedResource Include="Mappings\Connection.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Infection.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Machine.hbm.xml" />
+    <EmbeddedResource Include="Mappings\NIC.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Virus.hbm.xml">
       <SubType>Designer</SubType>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

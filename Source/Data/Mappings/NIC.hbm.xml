@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-    <class name="Ogd.Virarium.Domain.Models.NIC, Ogd.Virarium.Domain"
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="Ogd.Virarium.Domain.Models"
+                   assembly="Ogd.Virarium.Domain">
+    <class name="NIC"
            table="NICs">
         <id name="Id">
             <column name="Id"

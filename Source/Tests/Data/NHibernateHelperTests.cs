@@ -16,21 +16,35 @@
         }
 
         [Test]
+        public void Test_Constructor_ConfigurationGiven_ConfigurationIsSame()
+        {
+            // Assign
+            var configuration = new Configuration();
+
+            // Act
+            var sut = new NHibernateHelper(configuration);
+
+            // Assert
+            Assert.That(() => sut.Configuration, Is.SameAs(configuration));
+        }
+
+        [Test]
+        public void Test_Constructor_ConfigurationNotGiven_ConfigurationIsSet()
+        {
+            // Assign
+            // Act
+            var sut = new NHibernateHelper();
+
+            // Assert
+            Assert.That(() => sut.Configuration, Is.InstanceOf<Configuration>());
+        }
+
+        [Test]
         public void Test_Configuration_ConfigurationSet_SetConfigurationReturned()
         {
             var configuration = new Configuration();
             var sut = CreateINHibernateImplementation();
             sut.Configure(configuration);
-
-            Assert.That(sut.Configuration, Is.SameAs(configuration));
-        }
-
-        [Test]
-        public void Test_Configuration_StaticConfigurationSet_SetConfigurationReturned()
-        {
-            var configuration = new Configuration();
-            var sut = CreateINHibernateImplementation();
-            NHibernateHelper._configuration = configuration;
 
             Assert.That(sut.Configuration, Is.SameAs(configuration));
         }

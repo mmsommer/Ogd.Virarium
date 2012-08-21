@@ -5,7 +5,7 @@ using NHibernate.Cfg;
 using NHibernate.Context;
 using Ogd.Virarium.Common.Layering.Persistence;
 
-[assembly: InternalsVisibleTo("Ogd.PackageServer.Infrastructure.Tests")]
+[assembly: InternalsVisibleTo("Ogd.Virarium.Data.Tests")]
 namespace Ogd.Virarium.Data
 {
     public class NHibernateHelper : INHibernateHelper
@@ -29,9 +29,15 @@ namespace Ogd.Virarium.Data
         {
             get
             {
-                if (_configuration == null)
+                if(_configuration == null)
                 {
-                    _configuration = new Configuration();
+                    lock(_syncRoot)
+                    {
+                        if(_configuration == null)
+                        {
+                            _configuration = new Configuration();
+                        }
+                    }
                 }
                 return _configuration;
             }
@@ -45,13 +51,13 @@ namespace Ogd.Virarium.Data
         {
             get
             {
-                if (_instance == null)
+                if(_instance == null)
                 {
                     // The instance of a SessionFactory can only be accessed when the instance variable completes.
                     // The syncRoot instance is locked to avoid deadlocks.
-                    lock (_syncRoot)
+                    lock(_syncRoot)
                     {
-                        if (_instance == null)
+                        if(_instance == null)
                         {
                             _instance = BuildFactory();
                         }
@@ -65,7 +71,7 @@ namespace Ogd.Virarium.Data
         {
             get
             {
-                if (_instance == null)
+                if(_instance == null)
                 {
                     return false;
                 }
@@ -85,7 +91,7 @@ namespace Ogd.Virarium.Data
 
         public void Bind()
         {
-            if (!SessionIsBound)
+            if(!SessionIsBound)
             {
                 var session = SessionFactory.OpenSession();
                 session.BeginTransaction();
@@ -96,10 +102,10 @@ namespace Ogd.Virarium.Data
         public void RollBack(ISession session = null)
         {
             var currentSession = session ?? CurrentSession;
-            if (SessionIsBound)
+            if(SessionIsBound)
             {
                 CurrentSessionContext.Unbind(SessionFactory);
-                if (currentSession.IsOpen)
+                if(currentSession.IsOpen)
                 {
                     Rollback(currentSession.Transaction);
                     currentSession.Flush();
@@ -111,13 +117,13 @@ namespace Ogd.Virarium.Data
         public void Flush(ISession session = null)
         {
             var currentSession = session ?? CurrentSession;
-            if (SessionIsBound)
+            if(SessionIsBound)
             {
                 CurrentSessionContext.Unbind(SessionFactory);
 
                 try
                 {
-                    if (currentSession.IsOpen)
+                    if(currentSession.IsOpen)
                     {
                         Commit(currentSession.Transaction);
                         currentSession.Flush();
@@ -137,7 +143,7 @@ namespace Ogd.Virarium.Data
 
         private void Commit(ITransaction transaction)
         {
-            if (transaction != null && transaction.IsActive)
+            if(transaction != null && transaction.IsActive)
             {
                 transaction.Commit();
             }
@@ -145,7 +151,7 @@ namespace Ogd.Virarium.Data
 
         private void Rollback(ITransaction transaction)
         {
-            if (transaction != null && transaction.IsActive)
+            if(transaction != null && transaction.IsActive)
             {
                 transaction.Rollback();
             }
@@ -160,12 +166,12 @@ namespace Ogd.Virarium.Data
 
         public Configuration Configure(Configuration configuration = null)
         {
-            if (configuration != null)
+            if(configuration != null)
             {
                 Configuration = configuration;
             }
 
-            if (!_configured)
+            if(!_configured)
             {
                 Configuration.Configure();
                 _configured = true;

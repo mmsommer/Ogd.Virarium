@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-    <class name="Ogd.Virarium.Domain.Models.Machine, Ogd.Virarium.Domain"
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="Ogd.Virarium.Domain.Models"
+                   assembly="Ogd.Virarium.Domain">
+    <class name="Machine"
            table="Machines">
         <id name="Id">
             <column name="Id"
@@ -14,8 +16,7 @@
         <set name="Infections"
              table="Infections" >
             <key column="MachineId" />
-            <one-to-many class="Ogd.Virarium.Domain.Models.Infection"
-                         column="Id" />
+            <one-to-many class="Infection" />
         </set>
     </class>
 </hibernate-mapping>

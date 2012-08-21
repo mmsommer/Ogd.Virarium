@@ -12,7 +12,7 @@ namespace Ogd.Virarium.Data
     {
         internal IRepositoryFactory Factory { get; private set; }
 
-        private IDictionary<Type, object> DaoCache { get; set; }
+        private IDictionary<Type, object> _cache { get; set; }
 
         public RepositoryFactory() : this(default(IRepositoryFactory), default(IQueryable), default(INHibernateHelper)) { }
 
@@ -23,17 +23,17 @@ namespace Ogd.Virarium.Data
         )
         {
             Factory = wrappedFactory ?? new GenericRepositoryFactory(initialCollection, nHibernateHelper);
-            DaoCache = new Dictionary<Type, object>();
+            _cache = new Dictionary<Type, object>();
         }
 
         public IRepository<T> GetRepository<T>()
             where T : class, IIdentifiable
         {
-            if(!DaoCache.ContainsKey(typeof(T)))
+            if(!_cache.ContainsKey(typeof(T)))
             {
-                DaoCache.Add(typeof(T), Factory.GetRepository<T>());
+                _cache.Add(typeof(T), Factory.GetRepository<T>());
             }
-            return (IRepository<T>)DaoCache[typeof(T)];
+            return (IRepository<T>)_cache[typeof(T)];
         }
     }
 }
