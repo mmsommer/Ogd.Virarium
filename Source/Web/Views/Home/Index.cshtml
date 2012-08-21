@@ -1,0 +1,14 @@
+﻿@model IndexViewModel
+@using Ogd.Virarium.Web.Models.Home
+@using Ogd.Virarium.Resources.Web.Views.Shared
+@{
+    ViewBag.Title = SharedStrings.Product;
+}
+<div class="machines">
+    @foreach(var machine in Model.Machines)
+    {
+        <div class="machine">
+            <div>@machine.Name</div>
+        </div>
+    }
+</div>
