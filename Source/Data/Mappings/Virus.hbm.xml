@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="Ogd.Virarium.Domain.Models"
+                   assembly="Ogd.Virarium.Domain">
+    <class name="Virus"
+           table="Virusses">
+        <id name="Id">
+            <column name="Id"
+                    sql-type="int"
+                    not-null="true" />
+            <generator class="identity" />
+        </id>
+        <property name="Name" />
+        <set name="Infections"
+             table="Infections">
+            <key column="VirusId" />
+            <one-to-many class="Infection" />            
+        </set>
+    </class>
+</hibernate-mapping>
