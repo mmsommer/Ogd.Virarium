@@ -1,0 +1,16 @@
+﻿@model MachineViewModel
+@using Ogd.Virarium.Web.Models
+<div class="machine">
+    <div class="name">
+        @Model.Name
+    </div>
+    <div class="number_of_infections">
+        @Model.Infections.Count()
+    </div>
+    <div class="list_of_infections">
+        @foreach(var infection in Model.Infections)
+        { 
+            @Html.Partial("ViewObjects/InfectionItem", infection)
+        }
+    </div>
+</div>
