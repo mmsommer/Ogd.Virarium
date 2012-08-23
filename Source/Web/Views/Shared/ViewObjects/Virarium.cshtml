@@ -1,0 +1,15 @@
+﻿@model IndexViewModel
+@using Ogd.Virarium.Web.Models.Home
+@using Ogd.Virarium.Domain.Models
+@foreach(var vlan in Model.VLans)
+{
+    @Html.Partial("ViewObjects/VLan", vlan)
+}
+<div class="newline">
+</div>
+@foreach(var machine in from x in Model.Machines
+                       where x.MachineType == MachineType.PC
+                       select x)
+{
+    @Html.Partial("ViewObjects/Machine", machine)
+}

@@ -7,11 +7,12 @@
 }
 <script type="text/javascript">
     function Refresh() {
-        //location.reload();
+        $('#virarium').load('@Url.Action("UpdateVirarium")');
+        setTimeout("Refresh()",1000);
     };
 
     $(document).ready(function () {
-        setTimeout("Refresh()", 500);
+        setTimeout("Refresh()", 1000);
     });
 
     $('div.machine').hover(
@@ -21,17 +22,5 @@
     );
 </script>
 <div id="virarium" class="virarium">
-    @foreach(var vlan in Model.VLans)
-    {
-        @Html.Partial("ViewObjects/VLan", vlan)
-    }
-    <div class="newline">
-    </div>
-    @foreach(var machine in from x in Model.Machines
-                            where x.MachineType == MachineType.PC
-                            select x)
-                            
-    {
-        @Html.Partial("ViewObjects/Machine", machine)
-    }
+    @Html.Partial("ViewObjects/Virarium", Model)
 </div>

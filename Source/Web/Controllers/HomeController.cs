@@ -1,6 +1,5 @@
 ﻿namespace Ogd.Virarium.Web.Controllers
 {
-    using System.Linq;
     using System.Web.Mvc;
     using Ogd.Virarium.Common.Layering.Presentation;
     using Ogd.Virarium.Domain.Models;
@@ -37,18 +36,27 @@
             CreateMap<VLan, VLanViewModel>();
 
             var viewModel = new IndexViewModel();
-            var machines = MachineService.GetAll();
-            viewModel.Machines = Map<Machine, MachineViewModel>(machines);
-            foreach(var machine in viewModel.Machines)
-            {
-                if(machines.Single(x => x.Id == machine.Id).NICs != null)
-                {
-                    machine.NICs = Map<NIC, NICViewModel>(machines.Single(x => x.Id == machine.Id).NICs);
-                }
-            }
+            viewModel.Machines = Map<Machine, MachineViewModel>(MachineService.GetAll());
             viewModel.VLans = Map<VLan, VLanViewModel>(VLanService.GetAll());
 
             return View(viewModel);
+        }
+
+        [HttpGet]
+        public PartialViewResult UpdateVirarium()
+        {
+            CreateMap<Connection, ConnectionViewModel>();
+            CreateMap<Infection, InfectionViewModel>();
+            CreateMap<Machine, MachineViewModel>();
+            CreateMap<NIC, NICViewModel>();
+            CreateMap<Virus, VirusViewModel>();
+            CreateMap<VLan, VLanViewModel>();
+
+            var viewModel = new IndexViewModel();
+            viewModel.Machines = Map<Machine, MachineViewModel>(MachineService.GetAll());
+            viewModel.VLans = Map<VLan, VLanViewModel>(VLanService.GetAll());
+
+            return PartialView("ViewObjects/Virarium", viewModel);
         }
     }
 }
