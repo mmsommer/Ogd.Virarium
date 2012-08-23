@@ -49,6 +49,7 @@
     <Compile Include="Models\MachineType.cs" />
     <Compile Include="Models\NIC.cs" />
     <Compile Include="Models\Virus.cs" />
+    <Compile Include="Models\VLan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

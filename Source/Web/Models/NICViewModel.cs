@@ -9,8 +9,10 @@
 
         public ConnectionViewModel Connection { get; set; }
 
-        public string IpAddress { get; set; }
+        public string MacAddress { get; set; }
 
         public MachineViewModel Machine { get; set; }
+
+        public VLanViewModel VLan { get; set; }
     }
 }

@@ -11,8 +11,12 @@
                     not-null="true" />
             <generator class="identity" />
         </id>
-        <property name="IpAddress" />
+        <property name="MacAddress" />
         <many-to-one name="Machine"
                      column="MachineId" />
+        <many-to-one name="VLan"
+                     column="VLanId" />
+        <one-to-one name="Connection"
+                    class="Connection" />
     </class>
 </hibernate-mapping>

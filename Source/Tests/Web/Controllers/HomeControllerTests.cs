@@ -16,15 +16,18 @@
     {
         Mock<IMachineService> machineService { get; set; }
 
+        Mock<IVLanService> vLanService { get; set; }
+
         protected override HomeController CreateImplementation()
         {
-            return new HomeController(machineService.Object);
+            return new HomeController(machineService.Object, vLanService.Object);
         }
 
         [SetUp]
         public void Init()
         {
             machineService = new Mock<IMachineService>();
+            vLanService = new Mock<IVLanService>();
         }
 
         [Test]
@@ -42,13 +45,37 @@
         public void Constructor_MachineServiceGiven_MachineServiceIsSame()
         {
             // Assign
-            var machineService = new Mock<IMachineService>();
+            machineService = new Mock<IMachineService>();
 
             // Act
             var sut = new HomeController(machineService.Object);
 
             // Assert
             Assert.That(() => sut.MachineService, Is.SameAs(machineService.Object));
+        }
+
+        [Test]
+        public void Constructor_NoVLanServiceGiven_VLanServiceSet()
+        {
+            // Assign
+            // Act
+            var sut = new HomeController();
+
+            // Assert
+            Assert.That(() => sut.VLanService, Is.InstanceOf<IVLanService>());
+        }
+
+        [Test]
+        public void Constructor_VLanServiceGiven_VLanServiceIsSame()
+        {
+            // Assign
+            vLanService = new Mock<IVLanService>();
+
+            // Act
+            var sut = new HomeController(vLanService.Object);
+
+            // Assert
+            Assert.That(() => sut.VLanService, Is.SameAs(vLanService.Object));
         }
 
         [Test]

@@ -8,8 +8,10 @@ namespace Ogd.Virarium.Domain.Models
 
         public virtual Connection Connection { get; set; }
 
-        public virtual string IpAddress { get; set; }
+        public virtual string MacAddress { get; set; }
 
         public virtual Machine Machine { get; set; }
+
+        public virtual VLan VLan { get; set; }
     }
 }

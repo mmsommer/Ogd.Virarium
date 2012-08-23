@@ -5,5 +5,7 @@
     public class IndexViewModel
     {
         public IEnumerable<MachineViewModel> Machines { get; set; }
+
+        public IEnumerable<VLanViewModel> VLans { get; set; }
     }
 }

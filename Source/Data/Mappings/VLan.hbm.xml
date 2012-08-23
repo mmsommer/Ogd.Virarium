@@ -3,19 +3,19 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
                    namespace="Ogd.Virarium.Domain.Models"
                    assembly="Ogd.Virarium.Domain">
-    <class name="Connection"
-           table="Connections">
+    <class name="VLan"
+           table="VLans">
         <id name="Id">
             <column name="Id"
                     sql-type="int"
                     not-null="true" />
             <generator class="identity" />
         </id>
-        <many-to-one name="PeerA"
-                     unique="true"
-                     column="NICA" />
-        <many-to-one name="PeerB"
-                     unique="true"
-                     column="NICB" />
+        <property name="Name" />
+        <set name="NICs"
+             table="NICs" >
+            <key column="VLanId" />
+            <one-to-many class="NIC" />
+        </set>
     </class>
 </hibernate-mapping>

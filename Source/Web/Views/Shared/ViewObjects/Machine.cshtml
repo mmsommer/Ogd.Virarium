@@ -1,6 +1,6 @@
 ﻿@model MachineViewModel
 @using Ogd.Virarium.Web.Models
-<div class="machine">
+<div id="@string.Format("machine_{0}", @Model.Id)" class="machine">
     <div class="name">
         @Model.Name
     </div>
@@ -13,4 +13,21 @@
             @Html.Partial("ViewObjects/InfectionItem", infection)
         }
     </div>
+    @foreach(var nic in Model.NICs)
+    {
+        <script type="text/javascript">
+            jsPlumb.ready(function () {
+                var w34Stroke = 'rgba(50, 50, 200, 1)';
+                var w34HlStroke = 'rgba(180, 180, 200, 1)';
+                jsPlumb.connect({
+                    source: '@string.Format("vlan_{0}", nic.VLan.Id)',
+                    target: '@string.Format("machine_{0}", nic.Machine.Id)',
+                    anchors: ['BottomCenter', 'TopCenter'],
+                    paintStyle: { lineWidth: 2, strokeStyle: 'rgb(243,230,18)' },
+                    endpointStyle: { gradient: {stops:[[0, w34Stroke], [1, w34HlStroke]], offset:17.5, innerRadius:2 }, fillStyle: 'rgb(243,229,0)', radius: 5 },
+                    endpointsOnTop: false
+                });
+            });
+        </script>
+    }
 </div>

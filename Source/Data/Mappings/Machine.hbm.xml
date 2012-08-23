@@ -18,5 +18,10 @@
             <key column="MachineId" />
             <one-to-many class="Infection" />
         </set>
+        <set name="NICs"
+             table="NICs">
+            <key column="MachineId" />
+            <one-to-many class="NIC" />
+        </set>
     </class>
 </hibernate-mapping>

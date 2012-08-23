@@ -1,6 +1,7 @@
 ﻿@model IndexViewModel
 @using Ogd.Virarium.Web.Models.Home
 @using Ogd.Virarium.Resources.Web.Views.Shared
+@using Ogd.Virarium.Domain.Models
 @{
     ViewBag.Title = SharedStrings.Product;
 }
@@ -12,9 +13,24 @@
     $(document).ready(function () {
         setTimeout("Refresh()", 500);
     });
+
+    $('div.machine').hover(
+        function () {
+            $(this).find('div.list_of_infections').toggle();
+        }
+    );
 </script>
-<div class="virarium">
-    @foreach(var machine in Model.Machines)
+<div id="virarium" class="virarium">
+    @foreach(var vlan in Model.VLans)
+    {
+        @Html.Partial("ViewObjects/VLan", vlan)
+    }
+    <div class="newline">
+    </div>
+    @foreach(var machine in from x in Model.Machines
+                            where x.MachineType == MachineType.PC
+                            select x)
+                            
     {
         @Html.Partial("ViewObjects/Machine", machine)
     }
