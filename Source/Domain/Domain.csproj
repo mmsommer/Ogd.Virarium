@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\InfectionColor.cs" />
+    <Compile Include="Models\VLanColor.cs" />
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\Infection.cs" />
     <Compile Include="Models\Machine.cs" />

@@ -50,7 +50,7 @@ div.name {
 .machine > div.list_of_infections {
     display: none;
     position: relative;
-    background-color: Aqua;
+    background-color:   Aqua;
     left: 80px;
     top: -30px;
 }

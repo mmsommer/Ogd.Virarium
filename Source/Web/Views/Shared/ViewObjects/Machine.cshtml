@@ -1,6 +1,20 @@
 ﻿@model MachineViewModel
+@using System
+@using System.Linq
+@using Ogd.Virarium.Domain.Models
 @using Ogd.Virarium.Web.Models
-<div id="@string.Format("machine_{0}", @Model.Id)" class="machine">
+@{
+    var color = InfectionColor.Green;
+    foreach(int level in Enum.GetValues(typeof(InfectionColor)))
+    {
+        if(level <= Model.Infections.Count() && (int)color < level)
+        {
+            color = (InfectionColor)level;
+        }
+    }
+               
+}
+<div id="@string.Format("machine_{0}", @Model.Id)" class="machine" style="background-color: @color.ToString();">
     <div class="name">
         @Model.Name
     </div>
@@ -17,14 +31,14 @@
     {
         <script type="text/javascript">
             jsPlumb.ready(function () {
-                var w34Stroke = 'rgba(50, 50, 200, 1)';
+                var w34Stroke = 'Gray';
                 var w34HlStroke = 'rgba(180, 180, 200, 1)';
                 jsPlumb.connect({
                     source: '@string.Format("vlan_{0}", nic.VLan.Id)',
                     target: '@string.Format("machine_{0}", nic.Machine.Id)',
                     anchors: ['BottomCenter', 'TopCenter'],
-                    paintStyle: { lineWidth: 2, strokeStyle: 'rgb(243,230,18)' },
-                    endpointStyle: { gradient: {stops:[[0, w34Stroke], [1, w34HlStroke]], offset:17.5, innerRadius:2 }, fillStyle: 'rgb(243,229,0)', radius: 5 },
+                    paintStyle: { lineWidth: 2, strokeStyle: '@Enum.GetName(typeof(VLanColor), nic.VLan.Id)' },
+                    endpointStyle: { gradient: { stops: [[0, w34Stroke], [1, w34HlStroke]], offset: 17.5, innerRadius: 2 }, fillStyle: 'rgb(243,229,0)', radius: 5 },
                     endpointsOnTop: false
                 });
             });
