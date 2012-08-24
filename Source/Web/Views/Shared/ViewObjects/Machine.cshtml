@@ -37,7 +37,7 @@
                     source: '@string.Format("vlan_{0}", nic.VLan.Id)',
                     target: '@string.Format("machine_{0}", nic.Machine.Id)',
                     anchors: ['BottomCenter', 'TopCenter'],
-                    paintStyle: { lineWidth: 2, strokeStyle: '@Enum.GetName(typeof(VLanColor), nic.VLan.Id)' },
+                    paintStyle: { lineWidth: 2, strokeStyle: '@(((IDictionary<int, string>)ViewBag.vlanColors)[nic.VLan.Id])' },
                     endpointStyle: { gradient: { stops: [[0, w34Stroke], [1, w34HlStroke]], offset: 17.5, innerRadius: 2 }, fillStyle: 'rgb(243,229,0)', radius: 5 },
                     endpointsOnTop: false
                 });

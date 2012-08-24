@@ -2,7 +2,7 @@
 @using System
 @using Ogd.Virarium.Domain.Models
 @using Ogd.Virarium.Web.Models
-<div id="@string.Format("vlan_{0}", @Model.Id)" class="vlan" style="background-color: @Enum.GetName(typeof(VLanColor), Model.Id);">
+<div id="@string.Format("vlan_{0}", @Model.Id)" class="vlan" style="background-color: @(((IDictionary<int, string>)ViewBag.vlanColors)[Model.Id]);">
     <div class="name">
         @Model.Name
     </div>

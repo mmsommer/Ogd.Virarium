@@ -1,8 +1,21 @@
 ﻿@model IndexViewModel
+@using System
 @using Ogd.Virarium.Web.Models.Home
 @using Ogd.Virarium.Domain.Models
+@{
+    var vlanColors = new Dictionary<int, string>();
+}
 @foreach(var vlan in Model.VLans)
 {
+    foreach(var color in Enum.GetNames(typeof(VLanColor)))
+    {
+        if(!vlanColors.ContainsValue(color.ToString()))
+        {
+            vlanColors.Add(vlan.Id, color.ToString());
+            break;
+        }
+    }
+    ViewBag.VlanColors = vlanColors;
     @Html.Partial("ViewObjects/VLan", vlan)
 }
 <div class="newline">
