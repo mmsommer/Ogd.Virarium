@@ -6,9 +6,13 @@
     ViewBag.Title = SharedStrings.Product;
 }
 <script type="text/javascript">
+    var doRefresh = true;
+
     function Refresh() {
-        $('#virarium').load('@Url.Action("UpdateVirarium")');
-        setTimeout("Refresh()",1000);
+        if (doRefresh) {
+            $('#virarium').load('@Url.Action("UpdateVirarium")');
+            setTimeout("Refresh()", 1000);
+        }
     };
 
     $(document).ready(function () {
@@ -20,7 +24,14 @@
             $(this).find('div.list_of_infections').toggle();
         }
     );
+
+    function toggleRefresh() {
+        doRefresh = !doRefresh;
+    };
 </script>
 <div id="virarium" class="virarium">
     @Html.Partial("ViewObjects/Virarium", Model)
+</div>
+<div id="ToggleRefresh">
+    <button onclick="toggleRefresh();">Toggle Refresh</button>
 </div>

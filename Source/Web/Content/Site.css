@@ -1,5 +1,5 @@
 ﻿body {
-    background-image: url('images/virarium.jpg');
+    background-image: url('images/bg.jpg');
 }
 
 div {
@@ -9,38 +9,60 @@ div {
 div.virarium {
     display: block;
     top: 140px;
-    height: 700px;
+    height: 900px;
     width: 1280px;
     margin: 0;
     padding: 0;
+    border: 1px dotted Green;
 }
 
 .virarium div.vlan {
     display: block;
+    background-image: url('images/switch.png');
+    background-position: center;
+    background-repeat: no-repeat;
     background-color: Yellow;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     margin: 5px;
     float: left;
 }
 
+.virarium div.machine.Green{
+    background-image: url('images/vpc_fase_Green.png');
+}
+
+.virarium div.machine.Red{
+    background-image: url('images/vpc_fase_Red.png');
+}
+
+.virarium div.machine.Yellow{
+    background-image: url('images/vpc_fase_Yellow.png');
+}
+
+.virarium div.machine.Orange{
+    background-image: url('images/vpc_fase_Orange.png');
+}
+
 .virarium div.machine {
     display: block;
-    background-image: url('images/computer.png');
-    background-color: Green;
-    width: 100px;
-    height: 100px;
+    background-image: url('images/vpc_fase_Green.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 80px;
+    height: 50px;
     margin: 5px;
     float: left;
 }
 
 div.name {
-    display: block;
+    display: none;
     color: Black;
 }
 
 .machine > div.number_of_infections {
-    display: block;
+    display: none;
     position: relative;
     color: Black;
     left: 10px;
@@ -50,7 +72,7 @@ div.name {
 .machine > div.list_of_infections {
     display: none;
     position: relative;
-    background-color:       Aqua;
+    background-color: Aqua;
     left: 80px;
     top: -30px;
 }
@@ -62,6 +84,6 @@ div.name {
 div.newline {
     display: block;
     clear: both;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
 }
