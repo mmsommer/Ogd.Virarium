@@ -93,14 +93,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\images\bg.jpg" />
-    <Content Include="Content\images\computer.jpg" />
-    <Content Include="Content\images\computer.png" />
-    <Content Include="Content\images\switch.jpg" />
-    <Content Include="Content\images\switch.png" />
     <Content Include="Content\images\virarium.jpg" />
-    <Content Include="Content\images\virarium_blue.jpg" />
-    <Content Include="Content\images\vlan.png" />
     <Content Include="Content\images\vlan_Aqua.png" />
     <Content Include="Content\images\vlan_Blue.png" />
     <Content Include="Content\images\vlan_Fuchsia.png" />
