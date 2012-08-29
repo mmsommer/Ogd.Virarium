@@ -25,13 +25,18 @@
         }
     );
 
-    function toggleRefresh() {
+    function toggleRefresh(element) {
         doRefresh = !doRefresh;
+        if (doRefresh) {
+            $(element).html('Disable autorefresh');
+        }else{
+            $(element).html('Enable autorefresh');
+        }
     };
 </script>
 <div id="virarium" class="virarium">
     @Html.Partial("ViewObjects/Virarium", Model)
 </div>
 <div id="ToggleRefresh">
-    <button onclick="toggleRefresh();">Toggle Refresh</button>
+    <button onclick="toggleRefresh(this);">Disable autorefresh</button>
 </div>

@@ -13,6 +13,7 @@
         </id>
         <property name="Name" />
         <property name="MachineType" />
+        <property name="Archived" />
         <set name="Infections"
              table="Infections" >
             <key column="MachineId" />

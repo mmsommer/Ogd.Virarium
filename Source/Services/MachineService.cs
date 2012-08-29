@@ -1,5 +1,6 @@
 ﻿namespace Ogd.Virarium.Services
 {
+    using System.Linq;
     using Ogd.Virarium.Common.Layering.Persistence;
     using Ogd.Virarium.Common.Layering.Service;
     using Ogd.Virarium.Data;
@@ -14,6 +15,11 @@
         public MachineService(IRepositoryFactory repositoryFactory)
         {
             RepositoryFactory = repositoryFactory ?? new RepositoryFactory();
+        }
+
+        public override System.Linq.IQueryable<Machine> GetAll()
+        {
+            return base.GetAll().Where(x => !x.Archived);
         }
     }
 }

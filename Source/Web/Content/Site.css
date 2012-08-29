@@ -1,57 +1,121 @@
 ﻿body {
-    background-image: url('images/bg.jpg');
+    background-image: url('images/virarium.jpg');
+    margin: 0;
+    padding: 0;
 }
 
 div {
     position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 div.virarium {
     display: block;
-    top: 140px;
-    height: 900px;
-    width: 1280px;
-    margin: 0;
-    padding: 0;
-    border: 1px dotted Green;
+    top: 160px;
+    height: 700px;
+}
+
+div#ToggleRefresh {
+    position: absolute;
+    top: 860px;
+    height: 40px;
+    padding: 0 10px;
 }
 
 .virarium div.vlan {
     display: block;
-    background-image: url('images/switch.png');
+    background-image: url('images/vlan_White.png');
     background-position: center;
     background-repeat: no-repeat;
-    background-color: Yellow;
-    width: 50px;
-    height: 50px;
+    background-color: transparent;
+    width: 100px;
+    height: 46px;
     margin: 5px;
     float: left;
 }
 
-.virarium div.machine.Green{
+.virarium div.vlan.Aqua {
+    background-image: url('images/vlan_Aqua.png');
+}
+
+.virarium div.vlan.Blue {
+    background-image: url('images/vlan_Blue.png');
+}
+
+.virarium div.vlan.Fuchsia {
+    background-image: url('images/vlan_Fuchsia.png');
+}
+
+.virarium div.vlan.Green {
+    background-image: url('images/vlan_Green.png');
+}
+
+.virarium div.vlan.Lime {
+    background-image: url('images/vlan_Lime.png');
+}
+
+.virarium div.vlan.Maroon {
+    background-image: url('images/vlan_Maroon.png');
+}
+
+.virarium div.vlan.Olive {
+    background-image: url('images/vlan_Olive.png');
+}
+
+.virarium div.vlan.Orange {
+    background-image: url('images/vlan_Orange.png');
+}
+
+.virarium div.vlan.Purple {
+    background-image: url('images/vlan_Purple.png');
+}
+
+.virarium div.vlan.Red {
+    background-image: url('images/vlan_Red.png');
+}
+
+.virarium div.vlan.Silver {
+    background-image: url('images/vlan_Silver.png');
+}
+
+.virarium div.vlan.Teal {
+    background-image: url('images/vlan_Teal.png');
+}
+
+.virarium div.vlan.White {
+    background-image: url('images/vlan_White.png');
+}
+
+.virarium div.vlan.Yellow {
+    background-image: url('images/vlan_Yellow.png');
+}
+
+.virarium div.machine.Green {
     background-image: url('images/vpc_fase_Green.png');
 }
 
-.virarium div.machine.Red{
+.virarium div.machine.Red {
     background-image: url('images/vpc_fase_Red.png');
 }
 
-.virarium div.machine.Yellow{
+.virarium div.machine.Yellow {
     background-image: url('images/vpc_fase_Yellow.png');
 }
 
-.virarium div.machine.Orange{
+.virarium div.machine.Orange {
     background-image: url('images/vpc_fase_Orange.png');
 }
 
 .virarium div.machine {
     display: block;
-    background-image: url('images/vpc_fase_Green.png');
+    background-image: url('images/vpc_fase_White.png');
     background-position: center;
     background-repeat: no-repeat;
     background-color: transparent;
     width: 80px;
-    height: 50px;
+    height: 65px;
     margin: 5px;
     float: left;
 }
@@ -59,6 +123,16 @@ div.virarium {
 div.name {
     display: none;
     color: Black;
+    top: 55px;
+    height: 10px;
+    font-size: 10px;
+    text-align: center;
+    width: 100%
+}
+
+.machine div.name {
+    display: block;
+    color: White;
 }
 
 .machine > div.number_of_infections {
