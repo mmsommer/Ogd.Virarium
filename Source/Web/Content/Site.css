@@ -5,7 +5,6 @@
 }
 
 div {
-    position: relative;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -13,6 +12,7 @@ div {
 
 div.virarium {
     display: block;
+    position: absolute;
     top: 160px;
     height: 700px;
 }
@@ -118,27 +118,21 @@ div#ToggleRefresh {
     height: 65px;
     margin: 5px;
     float: left;
+    z-index: 1;
 }
 
-div.name {
-    display: none;
-    color: Black;
+.machine > div.name, .vlan > div.name {
+    display: block;
+    color: White;
     top: 55px;
     height: 10px;
     font-size: 10px;
     text-align: center;
-    width: 100%
-}
-
-.machine div.name {
-    display: block;
-    color: White;
+    width: 100%;
 }
 
 .machine > div.number_of_infections {
     display: none;
-    position: relative;
-    color: Black;
     left: 10px;
     top: 20px;
 }
@@ -146,13 +140,12 @@ div.name {
 .machine > div.list_of_infections {
     display: none;
     position: relative;
-    background-color: Aqua;
+    background-color: Olive;
+    color: Black;
     left: 80px;
     top: -30px;
-}
-
-.list_of_infections div {
-    color: Blue;
+    z-index: 10;
+    font-size: 10px;
 }
 
 div.newline {
