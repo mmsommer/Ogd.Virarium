@@ -21,10 +21,12 @@
         @Model.Name
     </div>
     <div class="list_of_infections">
-        @foreach(var infection in Model.Infections)
-        { 
-            @Html.Partial("ViewObjects/InfectionItem", infection)
-        }
+        <ul>
+            @foreach(var infection in Model.Infections)
+            { 
+                @Html.Partial("ViewObjects/InfectionItem", infection)
+            }
+        </ul>
     </div>
     @foreach(var nic in Model.NICs)
     {
