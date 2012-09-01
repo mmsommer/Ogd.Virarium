@@ -14,11 +14,12 @@
 </div>
 <script type="text/javascript">
     var doRefresh = true;
+    var refreshTime = 15000;
 
     function refresh() {
         if (doRefresh) {
             $('#virarium').load('@Url.Action("UpdateVirarium")');
-            setTimeout("refresh()", 1000);
+            setTimeout("refresh()", refreshTime);
         }
     };
 
@@ -26,7 +27,7 @@
         doRefresh = !doRefresh;
         if (doRefresh) {
             $(element).html('Disable autorefresh');
-            setTimeout("refresh()", 1000);
+            setTimeout("refresh()", refreshTime);
         } else {
             $(element).html('Enable autorefresh');
         }
@@ -41,7 +42,7 @@
     }
 
     $(document).ready(function () {
-        setTimeout("refresh()", 1000);
+        setTimeout("refresh()", refreshTime);
     });
 
 </script>
