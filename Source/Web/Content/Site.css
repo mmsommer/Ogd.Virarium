@@ -2,6 +2,7 @@
     background-image: url('images/virarium.jpg');
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 div {
