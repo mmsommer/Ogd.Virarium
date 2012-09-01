@@ -121,13 +121,28 @@ div#ToggleRefresh {
     z-index: 1;
 }
 
-.machine > div.name, .vlan > div.name {
-    display: block;
+.secure {
+    border: 2px solid Green;
+}
+
+.machine > div.name {
     color: White;
+    top: 25px;
+    text-align: right;
+}
+
+.vlan > div.name {
+    color: Black;
     top: 55px;
-    height: 10px;
-    font-size: 10px;
     text-align: center;
+    width: 100%;
+}
+
+div.name {
+    display: block;
+    position: relative;
+    height: 12px;
+    font-size: 12px;
     width: 100%;
 }
 
@@ -164,5 +179,5 @@ div.newline {
     display: block;
     clear: both;
     width: 50px;
-    height: 50px;
+    height: 150px;
 }

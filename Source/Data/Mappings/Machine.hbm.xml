@@ -14,6 +14,7 @@
         <property name="Name" />
         <property name="MachineType" />
         <property name="Archived" />
+        <property name="Secure" />
         <set name="Infections"
              table="Infections" >
             <key column="MachineId" />

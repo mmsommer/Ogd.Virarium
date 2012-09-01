@@ -16,5 +16,7 @@ namespace Ogd.Virarium.Domain.Models
         public virtual ICollection<NIC> NICs { get; set; }
 
         public virtual bool Archived { get; set; }
+
+        public virtual bool Secure { get; set; }
     }
 }

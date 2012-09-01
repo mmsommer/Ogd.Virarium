@@ -10,5 +10,7 @@
         public virtual string Name { get; set; }
 
         public virtual ICollection<NIC> NICs { get; set; }
+
+        public virtual bool Secure { get; set; }
     }
 }

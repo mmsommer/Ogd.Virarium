@@ -12,6 +12,7 @@
             <generator class="identity" />
         </id>
         <property name="Name" />
+        <property name="Secure" />
         <set name="NICs"
              table="NICs" >
             <key column="VLanId" />

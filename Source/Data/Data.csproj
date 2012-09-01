@@ -98,14 +98,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Connection.hbm.xml" />
     <EmbeddedResource Include="Mappings\Infection.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Machine.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Machine.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mappings\NIC.hbm.xml" />
     <EmbeddedResource Include="Mappings\Virus.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\VLan.hbm.xml" />
+    <EmbeddedResource Include="Mappings\VLan.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

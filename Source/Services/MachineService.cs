@@ -17,7 +17,7 @@
             RepositoryFactory = repositoryFactory ?? new RepositoryFactory();
         }
 
-        public override System.Linq.IQueryable<Machine> GetAll()
+        public override IQueryable<Machine> GetAll()
         {
             return base.GetAll().Where(x => !x.Archived);
         }
