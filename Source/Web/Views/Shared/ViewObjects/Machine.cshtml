@@ -13,7 +13,7 @@
         }
     }
 }
-<div id="@string.Format("machine_{0}", @Model.Id)" class="machine @color.ToString()" onmouseover="showVirusList(this);" onmouseout="hideVirusList(this);">
+<div id="@string.Format("machine_{0}", @Model.Id)" class="machine @color.ToString() @(Model.Secure ? "secure" : "")" onmouseover="showVirusList(this);" onmouseout="hideVirusList(this);">
     <div class="number_of_infections">
         @Model.Infections.Count()
     </div>

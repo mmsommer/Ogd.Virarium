@@ -11,5 +11,7 @@
         public string Name { get; set; }
 
         public IEnumerable<NICViewModel> NICs { get; set; }
+
+        public bool Secure { get; set; }
     }
 }

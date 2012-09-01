@@ -122,20 +122,22 @@ div#ToggleRefresh {
 }
 
 .secure {
-    border: 2px solid Green;
+    border: 2px solid #009900;
 }
 
 .machine > div.name {
     color: White;
-    top: 25px;
-    text-align: right;
+    top: 55px;
+    text-align: center;
 }
 
 .vlan > div.name {
     color: Black;
-    top: 55px;
-    text-align: center;
+    top: 8px;
+    right: 20px;
     width: 100%;
+    text-align: right;
+    font-weight: bold;
 }
 
 div.name {

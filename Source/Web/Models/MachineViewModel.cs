@@ -15,5 +15,7 @@
         public IEnumerable<InfectionViewModel> Infections { get; set; }
 
         public IEnumerable<NICViewModel> NICs { get; set; }
+
+        public bool Secure { get; set; }
     }
 }
